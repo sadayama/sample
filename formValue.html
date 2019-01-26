@@ -21,25 +21,25 @@
 
 
 <script type="text/javascript">
-let form ;
+let form =
 window.addEventListener('load',function(){
-
+   // ボタン要素を変数に入れる
    test =document.getElementById("btn");
-   //ボタン要素を変数に入れる
 
+  // ボタン要素をクリックした時処理を実行
   test.addEventListener('click',function(){
-  //ボタン要素をクリックした時処理を実行
 
+   // 変数formにid属性textのフォームに入力されている値を代入する
+   // 属性の後ろに書かれている「.value」で所得している
    form = document.getElementById("text").value;
-   //変数formにid属性textのフォームに入力されている値を代入する
-   //属性の後ろに書かれている「.value」で所得している
 
-  document.getElementById("test").innerHTML=form;
   //id属性testのhtmlを変数formの値に書き換える
+  document.getElementById("test").innerHTML=form;
 
+ //ボタン要素をクリックした時の処理はここまで
+ //id属性がbtnの要素をクリックすることで、id属性がtestの要素にフォーム内のテキストが書き込まれる。
 },false);
-//ボタン要素をクリックした時の処理はここまで
-//id属性がbtnの要素をクリックすることで、id属性がtestの要素にフォーム内のテキストが書き込まれる。
+
 
 }
 ,false);
