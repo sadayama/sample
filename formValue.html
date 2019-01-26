@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+
+  <div id="btn">
+    <h1>ここを押してください</h1>
+  </div>
+
+  <h2><div id="test"></div></h2>
+    <form>
+    <input id="text"　type="text" size="50px" value="ここに入力してください">
+    </form>
+
+
+<script type="text/javascript">
+let form ;
+window.addEventListener('load',function(){
+
+   test =document.getElementById("btn");
+   //ボタン要素を変数に入れる
+
+  test.addEventListener('click',function(){
+  //ボタン要素をクリックした時処理を実行
+
+   form = document.getElementById("text").value;
+   //変数formにid属性textのフォームに入力されている値を代入する
+   //属性の後ろに書かれている「.value」で所得している
+
+  document.getElementById("test").innerHTML=form;
+  //id属性testのhtmlを変数formの値に書き換える
+
+},false);
+//ボタン要素をクリックした時の処理はここまで
+//id属性がbtnの要素をクリックすることで、id属性がtestの要素にフォーム内のテキストが書き込まれる。
+
+}
+,false);
+</script>
+
+</html>

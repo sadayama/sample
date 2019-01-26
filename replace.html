@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">ボタン</h1>
+
+<script type="text/javascript">
+window.addEventListener('load',function(){
+  const write = document.getElementById("btn");
+  //id属性btnの要素を変数に代入する
+
+  let chr ="文字列1 文字列2 文字列2";
+  btn.addEventListener("click",function(){
+  //変数btnに代入された値をクリックした時に処理を実行する
+
+    chr = chr.replace('文字列1',"変化しました");
+    //変数chrに変数chr内の「文字列1」一つを「変化しました」に置き換えた値を代入する
+    chr = chr.replace(/文字列2/g,"変化しました");
+    //変数chrに変数chr内の「文字列2」全てを「変化しました」に置き換えた値を代入する
+    // /文字列2/g　は正規表現
+
+    document.getElementById("btn").innerHTML=chr;
+    //id属性btnのhtmlを変数chrに書き換える
+  },false);
+}
+,false);
+</script>
+
+</html>
