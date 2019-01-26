@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+
+  <div id="test">テスト
+  </div>
+
+<script type="text/javascript">
+let test = `<h1>テスト</h1>
+            <h2>2行目
+            <br>3行目</h2>`
+window.addEventListener('load'function(){
+//ページが読み込まれた時
+
+let btn =document.getElementById('test')
+//変数にid要素を代入
+//変数でid要素を指定できるようにする
+
+btn.addEventListener('click',function(){
+console.log('クリック')
+document.getElementById('test').innerHTML=test
+}
+,false)
+//id要素をクリックした時に処理を行う。
+//コンソールログに「クリック」と出力
+//idがtestの要素を書き換える
+})
+</script>
+
+</html>
