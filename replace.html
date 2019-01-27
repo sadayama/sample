@@ -17,14 +17,23 @@ window.addEventListener('load',function(){
   const write = document.getElementById("btn");
 
   //　変数btnに代入された値をクリックした時に処理を実行する
-  let chr ="文字列1 文字列2 文字列2";
+  let chr ="<文字列1>&<文字列2>&<文字列3>012文字";
   btn.addEventListener("click",function(){
 
     //　変数chrに変数chr内の「文字列1」一つを「変化しました」に置き換えた値を代入する
     chr = chr.replace('文字列1',"変化しました");
-    //　変数chrに変数chr内の「文字列2」全てを「変化しました」に置き換えた値を代入する
-    //　 /文字列2/g　は正規表現
-    chr = chr.replace(/文字列2/g,"変化しました");
+    //　変数chrに変数chr内の「文字列2」と「文字列3」全てを「変化しました」に置き換えた値を代入する
+    //　 /文字列2|文字列3/g　は正規表現
+    chr = chr.replace(/文字列2|文字列3/g,"変化しました");
+    // エスケープシーケンス
+    chr = chr.replace(/&/g,"&amp;");
+    chr = chr.replace(/</g,"&lt;");
+    chr = chr.replace(/>/g,"&gt;");
+    // 1・2・0のどれかがあった場合、全て3に置き換える
+    // []内に入った文字を対象にする
+    chr = chr.replace(/[120]/g,3);
+    // 以下の場合、文字があった場合は「文」と「字」をそれぞれ変換するので注意
+    chr = chr.replace(/[文字]/g,"変化");
 
     //　id属性btnのhtmlを変数chrに書き換える
     document.getElementById("btn").innerHTML=chr;
