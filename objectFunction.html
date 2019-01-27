@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">ボタン</h1>
+
+<script type="text/javascript">
+window.addEventListener('load',function(){
+  //id属性btnの要素を変数に代入する
+  const write = document.getElementById("btn");
+
+
+  let chr = "12.3";
+  //変数btnに代入された値をクリックした時に処理を実行する
+  btn.addEventListener("click",function(){
+      // オブジェクト「サンプル」
+      const sample = {
+          // プロパティmath
+          math : () => {
+              // プロパティ内で関数を実行
+              console.log("処理しました");
+          }
+      };
+      // 「オブジェクト.プロパティ();」でプロパティ内の関数を実行した
+      sample.math();
+
+    document.getElementById("btn").innerHTML=chr
+  },false);
+}
+,false);
+</script>
+
+</html>
