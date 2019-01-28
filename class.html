@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">ボタン</h1>
+
+<script type="text/javascript">
+window.addEventListener('load',function(){
+  //id属性btnの要素を変数に代入する
+  const btn = document.getElementById("btn");
+  // クラスの作成
+  class Sample {
+      // インスタンスが作成された時に実行
+      constructor(color,number){
+          // コンソールに「"インスタンス作成"」を出力
+          console.log("インスタンス作成");
+          // プロパディ「str」に「"テキスト"」を代入する
+          this.str = "テキスト";
+          // プロパディ「color」に引数「color」を代入する
+          this.color = color;
+          // プロパディ「number」に引数「number」を代入する
+          this.number = number;
+      }
+      // メソッドの「did」を作成
+      did(){
+          // メソッド「did」が実行されたことを出力する
+          console.log("メソッドが実行された");
+      }
+      // メソッド「didDid」を作成
+      didDid(){
+          // メソッド「didDid」が実行されたことを出力する
+          console.log("メソッド内で実行された");
+      }
+      // メソッドの「call」を作成
+      calldidDid(){
+          // メソッド「didDid」を実行する
+          //メソッド内のメソッドを呼び出すこともできる
+          this.didDid();
+      }
+    };
+  // 変数btnに代入された値をクリックした時に処理を実行する
+  btn.addEventListener("click",function(){
+      // クラス「sample」を使ってインスタンス「test」を作成する
+      // インスタンスは変数に格納される。
+      // 同じ変数にインスタンスを代入した場合も、新たにインスタンスが作られたとして、constructorが実行されている
+      // constructorで指定された引数を()内に入力
+      // 引数「color」には「"red"」、引数「number」には「3」が入力されている。
+      let test = new Sample("red",3);
+      // コンソールに変数testを出力
+      console.log(test);
+      // コンソールに変数「test.str」で「test」に格納されたインスタンスに含まれるプロパディ「str」の値を出力する
+      console.log(test.str);
+      // プロパディ「color」を出力
+      console.log(test.color);
+      // プロパディ「number」を出力
+      console.log(test.number);
+      // インスタンスを収納した変数名とメソッド名でメソッドを実行する。
+      test.did();
+      test.calldidDid();
+  },false);
+}
+,false);
+</script>
+
+</html>
