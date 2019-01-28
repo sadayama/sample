@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">前半と後半</h1>
+
+<script type="text/javascript">
+
+window.addEventListener('load',function(){
+  // id属性btnの要素を変数に代入する
+  const btn = document.getElementById("btn")
+  // 変数「btn」に入っている要素のHTMLを変数「str」に代入する
+  const str = btn.innerHTML;
+  console.log(str);
+
+  // 変数「btn」に収納されたオブジェクトをクリックした時実行する
+  btn.addEventListener("click",function(){
+      // 変数「str」に入っている文字列を「と」で分離して配列にする。
+      // 配列は変数「array」に代入する
+      let array =str.split("と");
+      // arrayは配列になっている
+      console.log(array);
+      // 変数「btn」に入っているHTML要素を書き換える
+      // 変数「str」の1番目と2番目に入っている値を足したものを入れる。
+      document.getElementById("btn").innerHTML = array[0] + array[1];
+
+
+  });
+});
+</script>
+
+</html>
