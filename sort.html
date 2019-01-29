@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">並び替え</h1>
+
+<script type="text/javascript">
+
+window.addEventListener('load',function(){
+  // id属性の要素を変数に代入する
+  const btn = document.getElementById("btn")
+  // 不規則な順序の文字配列を用意する。
+  const array = ["い","か","あ"];
+  let sort;
+  // 変数「btn」に収納されたオブジェクトをクリックした時実行する
+  btn.addEventListener("click",function(){
+      // 変数「array」の中にある配列を値が小さい順番に並び替える
+      sort = array.sort();
+      document.getElementById("btn").innerHTML = sort;
+  });
+});
+</script>
+
+</html>
