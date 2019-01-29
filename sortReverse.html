@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>大きい順に並べる</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="a">sort()とreverse()</h1>
+<h1 id="b">比較関数の文字列</h1>
+<h1 id="c">比較関数の数字</h1>
+
+<script type="text/javascript">
+
+window.addEventListener('load',function(){
+  // id属性の要素を変数に代入する
+  const a = document.getElementById("a")
+  const b = document.getElementById("b")
+  const c = document.getElementById("c")
+  // 不規則な順序の文字配列を用意する。
+  let array = ["い","か","あ"];
+  let answer;
+  // 変数「btn」に収納されたオブジェクトをクリックした時実行する
+  a.addEventListener("click",function(){
+      array = ["い","か","あ"];
+      // 「sort()」の後ろに「revrse()」を入れたメソッドチェーン
+      answer = array.sort().reverse();
+      document.getElementById("a").innerHTML = answer;
+  });
+  // パターンbとcは比較関数で並び替える
+  // sortしてreveseするパターンaより処理が早い
+  b.addEventListener("click",function(){
+      array = ["い","か","あ","な"];
+      // 文字列の並びかえに使う
+      answer = array.sort(function(array,answer){
+          // 変数「array(並び替える前の値)」が変数「answer(並び替えた後の値)」がより大きいか?
+          if(array>answer){
+              // 順序を後ろに下げる
+              return -1;
+        　 // 変数「array(並び替える前の値)」が変数「answer(並び替えた後の値)」がより小さいか?
+          }else if(array<answer){
+              // 順序を前に上げる
+              return 1;
+          }else{
+              // 順序を操作しない
+              return 0;
+          }
+      });
+      document.getElementById("b").innerHTML = answer;
+  });
+  c.addEventListener("click",function(){
+      array = [1,3,2,80];
+    　// 数字の並び替え
+    　// 比較関数で順番を入れ替える
+      answer = array.sort(function(array,answer){return answer-array;});
+      document.getElementById("c").innerHTML = answer;
+  });
+});
+</script>
+
+</html>
