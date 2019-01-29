@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>includesでの配列チェック</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">配列の中身を確認</h1>
+
+<script type="text/javascript">
+window.addEventListener('load',function(){
+  // id属性の要素を変数に代入する
+  const btn = document.getElementById("btn")
+  // チェックされる配列を入れた変数
+  let array = ["テスト","てすと"]
+  // 含まれるか確認したい文字列
+  const check = "テスト"
+  // 変数「btn」に収納されたオブジェクトをクリックした時実行する
+  btn.addEventListener("click",function(){
+      // 配列に引数で指定した文字列が入っているか?
+      if(array.includes("check")){
+          // true(真)の処理
+          document.getElementById("btn").innerHTML = "「テスト」の文字列があります";
+      }else{
+          // false(偽)の処理
+          document.getElementById("btn").innerHTML = "「テスト」の文字列がありません";
+      };
+  });
+});
+</script>
+
+</html>
