@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="a">パターンA</h1>
+<h1 id="b">パターンB</h1>
+<h1 id="c">パターンC</h1>
+
+<script type="text/javascript">
+
+window.addEventListener('load',function(){
+  // id属性の要素を変数に代入する
+  const a = document.getElementById("a")
+  const b = document.getElementById("b")
+  const c = document.getElementById("c")
+  // 不規則な順序の文字配列を用意する。
+  let array = ["い","か","あ"];
+  let answer;
+  // 変数「btn」に収納されたオブジェクトをクリックした時実行する
+  a.addEventListener("click",function(){
+      array = ["い","か","あ"];
+      // 「sort()」の後ろに「revrse()」を入れたメソッドチェーン
+      answer = array.sort().reverse();
+      document.getElementById("a").innerHTML = answer;
+  });
+  b.addEventListener("click",function(){
+      array = ["い","か","あ"];
+      // 要復習
+      answer = array.sort(function(array,answer){
+          if(array>answer){
+              return -1;
+          }else if(array<answer){
+              return 1;
+          }else{
+              return 0;
+          }
+      });
+      document.getElementById("b").innerHTML = answer;
+  });
+  c.addEventListener("click",function(){
+      array = ["い","か","あ"];
+      // 動作せず、要復習
+      answer = array.sort(function(array,answer){return answer-array;});
+      document.getElementById("c").innerHTML = answer;
+  });
+});
+</script>
+
+</html>
