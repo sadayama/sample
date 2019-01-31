@@ -20,12 +20,9 @@ window.addEventListener('load',function(){
   // NodeListは配列では無い
   let test =document.querySelectorAll(".btn");
   // 変数「test」に収納された要素の数だけ実行する
-  // 引数valueには　要素の値が代入される
   test.forEach(function(value){
       // 要素をクリックすると、その要素が表示される
-      // test[値]はid属性を代入した変数のようになる
       value.addEventListener("click",function(){
-          console.log(value);
           // クリックされた"btn"classをもつ要素の種類が表示されます
           document.getElementById("btn").innerHTML = value
       })
