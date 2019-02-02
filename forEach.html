@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+let sample = [1,2,3,4,5,6,7,8,9,]
+const btn = document.getElementById("btn")
+// 変数numberを文字列型にしておく
+let number =""
+window.addEventListener('load',()=> {
+    // 配列データの値1つずつに対してコールバック関数に記述された処理を実行する
+    // 変数 sampleに入っている数値を文字列型変数numberに加えていく
+    sample.forEach((value)=> {
+        number = number + value;
+        document.getElementById("btn").innerHTML = number;
+    })
+
+});
+</script>
+
+</html>
