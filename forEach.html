@@ -15,10 +15,11 @@
 let sample = [1,2,3,4,5,6,7,8,9,]
 const btn = document.getElementById("btn")
 // 変数numberを文字列型にしておく
-let number =""
+let number
 window.addEventListener('load',()=> {
     // 配列データの値1つずつに対してコールバック関数に記述された処理を実行する
-    // 変数 sampleに入っている数値を文字列型変数numberに加えていく
+    // 変数sampleに入っている配列の値を数値0の入った変数numberに足していく。
+    number = 0
     sample.forEach((value)=> {
         number = number + value;
         document.getElementById("btn").innerHTML = number;
