@@ -31,7 +31,16 @@ window.addEventListener('load',()=> {
         // オブジェクト名とプロパティ名でオブジェクト内のメソッドを実行
         method.test;
     })
+    // オブジェクトは配列の中にも入れることができる
+    const value = [
+        {comment:"配列内のオブジェクト",number:4}
+    ]
+    // 呼び出す時は変数名[配列の位置].プロパディ名
+    sample.number += value[0].number;
+
 });
+
+
 </script>
 
 </html>
