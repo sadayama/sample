@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+let sample
+let method
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // オブジェクトの作成
+    // オブジェクトは{プロパティ:値}で構成される
+    // 「,」で一つのオブジェクトに複数のプロパティ:値を入れることが可能
+    sample = {comment:"表示しました",number:10}
+    // オブジェクトの呼び出しはオブジェクト名.プロパティ名で行う
+    // sampleオブジェクトのcommentプロパティの値"表示しました"が表示される
+    btn.innerHTML = sample.comment;
+    btn.addEventListener("click",()=> {
+        // オブジェクトは値の代わりにメソッドも入れる
+        method = {
+            test:btn.innerHTML = sample.number
+        }
+        // オブジェクト名とプロパティ名でオブジェクト内のメソッドを実行
+        method.test;
+    })
+});
+</script>
+
+</html>
