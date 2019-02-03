@@ -20,6 +20,7 @@ window.addEventListener('load',()=> {
     sample[sample.length] = 11;
     btn.innerHTML = sample;
     btn.addEventListener("click",()=>{
+        //末尾の値を削除する
         sample.pop();
         btn.innerHTML = sample;
     })
