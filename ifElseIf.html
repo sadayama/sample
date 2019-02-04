@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    let number = false
+    if(number === true){
+        btn.innerHTML =number;
+    } else if(number === false){
+        btn.innerHTML ="falseです";
+    }else{
+        btn.innerHTML =`値は${number}です`;
+    }
+});
+</script>
+
+</html>
