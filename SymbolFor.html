@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // Symbol.for(文字列)は同じ文字列を引数に持つSymbol.forと同じ値として扱う
+    const one = Symbol.for("test")
+    const two = Symbol.for("test")
+    // 異なるSymbol.for("test")だが引数の文字列が同じなのでtrueになる
+    btn.innerHTML = one === two;
+    btn.addEventListener("click",()=>{
+        const three = Symbol("test")
+        const four = Symbol("test")
+        // Symbol("test")の場合はfalseになる
+        btn.insertAdjacentHTML('beforebegin',
+            `<h2>${three === four}
+            <h2>${one === three}`
+        );
+        // 変数内のSymbol.for("引数")の引数を参照する
+        // 値がSymbol("引数")の場合はundefinedになる
+        btn.insertAdjacentHTML("afterEnd",
+            `<h2>${Symbol.keyFor(one)}</h2>
+            <h2>${Symbol.keyFor(three)}</h2>`
+        );
+    });
+});
+</script>
+
+</html>
