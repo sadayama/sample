@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    let number = true
+    // 条件式に応じて　分岐する
+    // (number)で変数numberの値を参照する
+    switch(number){
+        // 値がtrueの場合
+        case true:
+        btn.innerHTML = "trueです";
+        // 処理を終了する
+        break;
+
+        case false:
+        btn.innerHTML = "falseです";
+        break;
+
+        // どのcaseも該当しない場合
+        default:
+        btn.innerHTML =`${number}という値が入っています`;
+        break;
+    };
+});
+</script>
+
+</html>

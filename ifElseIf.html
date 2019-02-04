@@ -15,10 +15,14 @@
 const btn = document.getElementById("btn")
 window.addEventListener('load',()=> {
     let number = false
+    // 条件式に等しい場合に処理をする
+    // (number === true)で変数numberがtrueかどうか
     if(number === true){
         btn.innerHTML =number;
+    // else if で2つめ以降のif分岐
     } else if(number === false){
         btn.innerHTML ="falseです";
+    // else はどのif分岐にも該当しなかった場合
     }else{
         btn.innerHTML =`値は${number}です`;
     }
