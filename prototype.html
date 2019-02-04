@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+let number = 0
+window.addEventListener('load',()=> {
+    function sample(){
+    }
+    // sampleにwrite()メソッドを加える
+    sample.prototype.write = ()=>{
+        number ++;
+        btn.innerHTML = number;
+    };
+    // sampleを元にtestを生成
+    let test = new sample();
+    btn.addEventListener("click",()=>{
+        // 元々のwriteメソッドを参照して実行する。
+        test.write();
+    });
+});
+</script>
+
+</html>
