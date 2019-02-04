@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+let number = 0
+window.addEventListener('load',()=> {
+    // id「btn」要素の手前にhtmlを挿入する
+    btn.insertAdjacentHTML('beforebegin',
+        "<p>Beforebegin</p>"
+    );
+    // id 「btn」要素の開始タグの直後に挿入する
+    btn.insertAdjacentHTML('afterbegin',
+        "開始"
+    );
+    // id「btn」要素の終了タグの直前に挿入する
+    btn.insertAdjacentHTML('beforeEnd',
+        "終了"
+    );
+    //終了タグの直後に挿入
+    btn.insertAdjacentHTML('afterEnd',
+        "<h2>afterEnd</h2>"
+    )
+});
+</script>
+
+</html>
