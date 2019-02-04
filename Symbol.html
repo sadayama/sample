@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // Symbol()は全てが異なる値
+    const black = Symbol()
+    const white = Symbol()
+    // 異なる値なのでfalseになる
+    btn.innerHTML = black === white;
+    btn.addEventListener("click",()=>{
+        // Symbolの引数はコメントのように使うことができる
+        const red = Symbol("red")
+        // Symbolの引数を参照する場合、変数名の後ろに「.toString()」を付ける
+        btn.innerHTML = red.toString();
+    });
+});
+</script>
+
+</html>
