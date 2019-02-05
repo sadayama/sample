@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // 0から2までが存在する配列
+    let roughArrangement = [1,2,3];
+    // 3と4を飛ばして5番目に配列を入れることができる
+    // こうした要素の追加をした配列を疎な配列と言う
+    roughArrangement[5] = 6;
+    // この場合、間に入るべき配列[3]と[4]は存在しない
+    // 変数answerにroughArrangement.hasOwnPropertyの結果を入れる
+    // 変数.hasOwnProperty("値")でプロパティがあるかを確認する
+    let answer = roughArrangement.hasOwnProperty("4");
+    // 配列[4]のプロパティが無いので、falseになる
+    btn.innerHTML = answer;
+});
+</script>
+
+</html>
