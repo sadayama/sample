@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    const sample = {test:"テスト"}
+    // 「"文字列" in オブジェクト名」でオブジェクト内に文字列のプロパティが存在すればtrue
+    btn.innerHTML = "test" in sample ;
+});
+</script>
+
+</html>
