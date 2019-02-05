@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    const variable = ["変数で作成","されました"];
+    // 配列はArrayコンストラクタでも生成できる
+    const array = new Array("Arrayで作成","Arrayはコンストラクタ");
+    // 引数が整数一つの場合、引数は配列の長さを表す。
+    let long = new Array(3);
+    // 変数.lengthで3が表示される。配列の長さが3であることがわかる
+    btn.innerHTML = long.length;
+});
+</script>
+
+</html>
