@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    let sample = {one:"テスト", two:"削除対象"}
+    // 「変数名.プロパティ名 = 値」でプオブジェクトに対してロパティの追加
+    sample.three = "追加しました";
+    btn.innerHTML = sample.three;
+    btn.addEventListener("click",()=>{
+        // delete で対象のオブジェクトを削除できる
+        delete sample.two;
+        // オブジェクトが削除されているのでundefined
+        btn.innerHTML = sample.two;
+    })
+});
+</script>
+
+</html>
