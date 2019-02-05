@@ -29,7 +29,8 @@ window.addEventListener('load',()=> {
         // 生成されたオブジェクトは、処理が終了するとメモリから消える
         // このようなオブジェクトはラッパーオブジェクトと言う
         one = chr.length;
-        two = chr.charAt(0);
+        // charAt[値]の代わりに[値]も使える
+        two = chr[0];
         btn.innerHTML = one + two ;
     })
 });
