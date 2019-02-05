@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    //プリミティブ型
+    let primitive = 3;
+    function value(x) { return x = x + 1};
+    let number = value(primitive);
+    // プリミティブ型は値渡し
+    // 値だけを渡すので元々の変数は変化しない
+    btn.innerHTML = `${primitive}と${number}`;
+
+
+    //オブジェクト型
+    let object = {one:4, two:6};
+    function reference(p) {
+        p.one = p.one + 1;
+        p.two = p.two + 1;
+        return p;};
+    // オブジェクト型は参照渡し
+    // 参照する先は元々の変数なので、変数objyectの値も変化する。
+    btn.addEventListener("click",()=>{
+        number = reference(object);
+        console.log(object);
+        console.log(number);
+    });
+});
+</script>
+
+</html>
