@@ -15,7 +15,9 @@
 const btn = document.getElementById("btn")
 window.addEventListener('load',()=> {
     const sample = {test:"テスト"}
-    // 「"文字列" in オブジェクト名」でオブジェクト内に文字列のプロパティが存在すればtrue
+    // 「"文字列" in オブジェクト名」
+    // オブジェクト内に文字列のプロパティが存在すればtrue
+    // オブジェクトが継承している全てのプロパティが含まれる
     btn.innerHTML = "test" in sample ;
 });
 </script>
