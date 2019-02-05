@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // Stringオブジェクトの作成
+    let StringObject = new String("文字列");
+    // Stringオブジェクトはlengthで長さを表示できる
+    let one = StringObject.length;
+    // StringchrAt(1)で文字列の2番目の値を代入する
+    let two = StringObject.charAt(1);
+    btn.innerHTML = one + two;
+
+    let chr = "テスト";
+    btn.addEventListener("click",()=>{
+        // Stringオブジェクトのプロパティやメソッドは文字列にも適応できる
+        // 文字列に対して参照すると、一時的に同じ文字列のStringオブジェクトが生成される
+        // 生成されたオブジェクトは、処理が終了するとメモリから消える
+        // このようなオブジェクトはラッパーオブジェクトと言う
+        one = chr.length;
+        two = chr.charAt(0);
+        btn.innerHTML = one + two ;
+    })
+});
+</script>
+
+</html>
