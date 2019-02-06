@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // 即時関数は定義されると同時に実行される
+    // 実行されているため、変数sampleには戻り値の"即時関数"が入っている
+    // 即時関数はグローバルスコープを汚染を防ぐために使われる
+    let sample = (function(){
+        return "即時関数";
+    })();
+    btn.innerHTML =sample;
+
+    btn.addEventListener("click",()=>{
+        // 通常の無名関数
+        // 変数には無名関数が入っている
+        let sample = ()=>{
+            return "普通の関数";
+        };
+        btn.innerHTML =sample;
+    });
+});
+</script>
+
+</html>
