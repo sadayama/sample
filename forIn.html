@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // プロパティと値が入ったオブジェクト
+    let test = {one:1, two:2, three:3 };
+    // 空の文字列が入った変数
+    let answer = ""
+    // for(変数　in オブジェクト式){処理}
+    // オブジェクトのプロパティを変数の値として関数を実行する
+    // 処理はプロパティの数だけ行われる
+    for(let sample in test){
+        answer += sample;
+    };
+    // 変数answerにはオブジェクトに入ったプロパティが連結された状態で入っている
+    btn.innerHTML = answer;
+});
+</script>
+
+</html>
