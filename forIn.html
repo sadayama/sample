@@ -27,6 +27,13 @@ window.addEventListener('load',()=> {
     };
     // 変数answerにはオブジェクトに入ったプロパティが連結された状態で入っている
     btn.innerHTML = answer;
+    btn.addEventListener("click",()=>{
+        for(let sample in test){
+            // オブジェクトの値を参照する時はオブジェクト名[変数名]
+            answer += test[sample];
+        };
+        btn.innerHTML = answer;
+    })
 });
 </script>
 
