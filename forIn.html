@@ -28,8 +28,15 @@ window.addEventListener('load',()=> {
     // 変数answerにはオブジェクトに入ったプロパティが連結された状態で入っている
     btn.innerHTML = answer;
     btn.addEventListener("click",()=>{
+        // オブジェクトの値を参照する場合のfor文サンプル2種類
+
+        // Object.keys()でオブジェクトのプロパティを配列に。
+        // sampleに代入、for/of文で繰り返す
+        for(let sample of Object.keys(test)){
+            answer += test[sample];
+        }
+        // for/in文でオブジェクトのプロパティをsampleに代入して繰り返す
         for(let sample in test){
-            // オブジェクトの値を参照する時はオブジェクト名[変数名]
             answer += test[sample];
         };
         btn.innerHTML = answer;
