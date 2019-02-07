@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    //変数がどこで宣言された変数であるかを決めることを変数の名前解決という
+
+    // 関数bとcから見て自由変数
+    var a ="A";
+    // 閉じた関数
+    // 束縛変数のみを含む関数を閉じた関数と言う
+    // 束縛変数bとcのみを含むので閉じた関数
+    function f() {
+        // 関数cから見て自由変数
+        // 関数fから見て束縛変数
+        var b = "B";
+        // 開いた関数
+        // 自由変数を含む関数を開いた関数と言う
+        // 自由変数aとbを含むので開いた関数
+        function g(){
+            // 関数fとgから見て束縛変数
+            // 関数の引数やローカル変数を束縛変数と言う
+            var c ="C";
+            console.log(a+b+c);
+        }
+        g();
+    }
+    // 名前解決では、関数内にローカル変数が無い場合は、関数外のよりローカルな関数を一つずつ参照していく
+    // 名前解決時に順番に外の関数を参照していくことをスコープチェーンと言う
+    f();
+});
+</script>
+
+</html>
