@@ -19,6 +19,7 @@ window.addEventListener('load',()=> {
         btn.innerHTML = `${x}と${y}`;
     }
     // 入力されてない引数はundefindeになる
+    // js特有の仕様?他だと設定しておかないとできない?
     test(3);
     function sample(x,y){
         // 「||」は左のオペランドがtureの時は左のオペランドを返す
