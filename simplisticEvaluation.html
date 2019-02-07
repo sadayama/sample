@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // &&と||は短絡評価をする
+    // 第1オペランドの値でその式の値が決まる時に第2オペランドを評価しない
+    // 短絡評価では最後に評価した値を返す
+
+    // &&は論理積
+    // 1番目のオペランドがfalse
+    // 論理値falseではなく1番目オペランドを返す
+    let object = null;
+    let returnValue = object && object.property;
+    console.log(returnValue);
+    // 1番目のオペランドがtrue
+    // 論理ちtrueではなく2番目のオペランドを返す
+    object = {property:"プロパティ"};
+    returnValue = object && object.property;
+    console.log(returnValue);
+
+    // ||は論理和
+    // 1番目にtrueになった値を返す
+    // trueになった場合、それ以降の値は評価しない
+    let sample
+    let sampleTwo = {valueOne:"test"};
+    // ||で最初にtrueだった値を変数に代入するサンプル
+    let test = sample|| sampleTwo.value || "test";
+    console.log(test);
+});
+</script>
+
+</html>

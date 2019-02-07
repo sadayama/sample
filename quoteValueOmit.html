@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    function test(x,y){
+        btn.innerHTML = `${x}と${y}`;
+    }
+    // 入力されてない引数はundefindeになる
+    test(3);
+    function sample(x,y){
+        // 「||」は左のオペランドがtureの時は左のオペランドを返す
+        // 左のオペランドがfalseの時は右のオペランドを返す
+        // 引数yに値があればtrueで左の値が渡される
+        // 引数yに値がないundefinedの場合はfalseで右の値が渡される
+        // この特性を短絡評価という
+        y = y || 1;
+        return x * y ;
+        };
+    btn.addEventListener("click",()=>{
+        btn.innerHTML = sample(7);
+    })
+});
+</script>
+
+</html>
