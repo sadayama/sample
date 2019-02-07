@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // nの階上を返す関数
+    function recursiveCall(n){
+        if(n <= 1 )return 1;
+        // 関数は自分自身を呼び出すことができる
+        // これを再帰呼び出しと呼ぶ
+        // 再帰呼び出しをする関数を再帰関数と呼ぶ
+        return n * recursiveCall(n-1);
+    };
+    let sample = recursiveCall(3);
+    btn.innerHTML = sample;
+    // 関数が自分自身を呼ぶので無限ループにならないように再帰が終わるようにすること
+    // 関数はメモリの異なる領域を使うので、再帰回数が増えるほどメモリを消費する
+    // 多くの場合はwhile文やfor文を使った方がわかりやすく、メモリを消費しない
+    // ハノイの塔やクイックソートを使う場合は再帰呼び出しが有効
+});
+</script>
+
+</html>
