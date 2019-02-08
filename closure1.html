@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // 関数オブジェクトとそれが参照する変数オブジェクトの集まりをクロージャと言う
+    function makeCounter(){
+           let count = 0;
+           // 返り値として関数fを返す
+           return f;
+           function f() {
+               // 現在の変数countの値を返してからcountの値を+=1する
+               return count++;
+           }
+       }
+       // 変数counterには返り値である関数fが入っている。
+       // makeCounterを呼ぶごとに、異なるmakeCounterのcallオブジェクトが生成される
+       // それぞれの変数毎に異なるクロージャが作られる？
+       var counter1 = makeCounter();
+       var counter2 = makeCounter();
+       // 関数fの返り値が出力される。
+       // 異なるcallオブジェクトなので、それぞれは独立したカウンタとなる
+       for(let l=0;l <= 1;l++){
+           console.log(counter1());
+           console.log(counter2());
+       }
+});
+</script>
+
+</html>
