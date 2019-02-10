@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    //原文ままなのでどこかで改良
+
+    // 引数xを持った関数
+    function makeMultiple(x) {
+        // 引数に関数を返す
+        return function(y){
+            return x*y;
+        };
+    }
+    // 変数に関数が入った戻り値を代入する
+    // 変数に入った関数に引数を与えている
+    // この引数がxになる
+    var multi2 = makeMultiple(2);
+    var multi10 = makeMultiple(10);
+    //呼び出す変数に与えられた引数がyになる
+    console.log(multi2(3));
+    console.log(multi10(3));
+});
+</script>
+
+</html>

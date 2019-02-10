@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // サンプルままなので、何処かで改良したい
+
+    // 引数はnameとage
+    function Person(name,age) {
+        //　引数を変数に代入する
+        var _name = name;
+        var _age = age;
+        // 戻り値を設定する
+        // 戻り値にはオブジェクトを代入する
+        return {
+            // 引数nameを返すメソッド
+            getName: function() { return _name;},
+            // 引数ageを返すメソッド
+            getAge: function() {return _age;},
+            // 引数ageの値を更新するメソッド
+            setAge: function(x) {_age = x;}
+        };
+    }
+    // 変数に引数を入力した関数を代入する
+    // 関数のクロージャ内にnameとageが保存される
+    var person = Person("Tom", 18);
+    console.log(person.getName());
+    console.log(person.getAge());
+    // プロパディsetAgeを呼び出す
+    // 変数_ageを引数の19に更新する
+    person.setAge(19);
+    console.log(person.getAge());
+});
+</script>
+
+</html>
