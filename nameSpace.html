@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+//const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // オブジェクトを名前空間として用いる
+
+    // オブジェクトの名前空間
+    // 変数が既に定義されていれば、それが用いられる
+    // そうでない場合は空のオブジェクトが変数に代入される
+    // let だとアクセスできなくてエラーがでる
+    var nameSpace = nameSpace || {};
+    // 変数や関数をプロパティとしてオブジェクトの中に入れる
+    // 名前空間を用いることで、グローバルスコープの汚染を防ぐ
+    // グローバルスコープの汚染とは、グローバルスコープに変数や関数が宣言されること
+    // グローバルスコープが汚染されると名前の衝突によるエラーが発生しやすくなる。
+    nameSpace.value = "test";
+    nameSpace.test = ()=>{
+        console.log(nameSpace.value);
+    }
+    nameSpace.test();
+
+    //関数の名前空間
+    var x = "global x";
+    // 即時関数の中で宣言された変数は全て即時関数のローカル変数になる
+    // プログラムを即時関数にすることで、グローバルスコープの汚染を防ぐ
+    (function(){
+        var x ="local";
+    })();
+    console.log(x);
+
+    //　上記二つの名前空間を使ったモジュール
+    // 公開する関数をオブジェクトの名前空間に追加することで、関数の名前空間の関数を外部から実行できるようにする
+    // 未定義変数にオブジェクト作成
+    var Module = Module || {};
+    // 即時関数
+    // 引数は_Module
+    (function(_Module) {
+        //　ローカル変数の作成
+        var sample = "None";
+        // 変数の値を返り値にして返す関数
+        function getValue(){
+            return sample;
+        };
+        // 関数getValueの返り値をコンソールに出力する
+        // オブジェクト変数Moduleに関数を追加する
+        _Module.showSample = function() {
+            console.log(getValue());
+        };
+        // 引数を変数に代入する
+        // オブジェクト変数Moduleに関数を追加する
+        _Module.setSample = function(x) {
+            sample =x;
+        };
+    // 引数にはModuleが与えられている
+    // _ModuleはModuleに置き換わっている
+    })(Module);
+    // オブジェクトModuleの関数として呼び出すことで、即時関数の外からも呼び出せる
+    Module.setSample("test");
+    Module.showSample()
+});
+</script>
+
+</html>
