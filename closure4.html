@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    //原文ままなのでどこかで改良
+
+    function Primes(n) {
+        // 2~nまでの数からエラステネスのふるいで素数を求める
+        // 空の配列を作る
+        var p = [];
+        // 2以上n以下の整数が入った配列を作る
+        // それぞれの数字はtrueを値に持ったプロパティになる
+        // for文の{}は1行なら省略できる？
+        for(var i=2; i<=n;i++) p[i] =true;
+        // Math.sqrt()は引数の平方根を求める
+        // 整数の最大値の平方根を掛けて整数にした値を変数に入れる
+        var max = Math.floor(Math.sqrt(n));
+        var x = 2;
+        // xがmax以上になるまで繰り返す
+        while (x<=max) {
+            // 2の倍数をfalseにする
+            // xの倍数は合成数
+            for(var i=2*x; i<=n; i+=x) p[i] =false;
+            // 次の素数を探す
+            // pの配列がx+1でなくなるまで繰り返す？
+            while(!p[++x]) ;
+        }
+        // 素数だけを取り出して配列primesに格納
+        var primes = [],nprimes = 0;
+        // p[i]がtrueの場合、primesのnprimes番目の値はiになる
+        // 素数の場合、変数配列に加えられる。
+        for(var i=2; i<=n; i++) if(p[i])primes[nprimes++] = i;
+        p = null; //いらなくなった配列をメモリから解放
+        // m個の素数をランダムに選んでその積を返す関数を返す
+        return function(m) {
+            // 引数の回数実行する
+            for(var i=0, product = 1;i<m; i++){
+                // 配列全体の中からランダムで値を選ぶ
+                // 現在の値に選ばれた配列の値を掛ける
+                product *= primes[Math.floor(Math.random()*nprimes)];
+            }
+            // 計算された値を返す
+            return product;
+        }
+    }
+    var primeProduct = Primes(100);
+    console.log(primeProduct(2));
+    console.log(primeProduct(2));
+});
+</script>
+
+</html>
