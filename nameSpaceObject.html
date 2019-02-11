@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+<input type="button" value="0">
+<input type="button" value="1">
+<input type="button" value="2">
+
+<script type="text/javascript">
+  "use strict";
+//const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // オブジェクトを名前空間として用いる
+    // 変数が既に定義されていれば、それが用いられる
+    // そうでない場合は空のオブジェクトが変数に代入される
+    // let だとアクセスできなくてエラーがでる
+    var nameSpace = nameSpace || {};
+    // 変数や関数をプロパティとしてオブジェクトの中に入れる
+    // 名前空間を用いることで、グローバルスコープの汚染を防ぐ
+    // グローバルスコープの汚染とは、グローバルスコープに変数や関数が宣言されること
+    // グローバルスコープが汚染されると名前の衝突によるエラーが発生しやすくなる。
+    nameSpace.value = "test";
+    nameSpace.test = ()=>{
+        console.log(nameSpace.value);
+    }
+    nameSpace.test();
+});
+</script>
+
+</html>
