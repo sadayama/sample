@@ -27,16 +27,20 @@ window.addEventListener('load',()=> {
         for(var i=2; i<=n;i++) p[i] =true;
         // Math.sqrt()は引数の平方根を求める
         // 整数の最大値の平方根を掛けて整数にした値を変数に入れる
+        // 100の平方根は10
         var max = Math.floor(Math.sqrt(n));
         var x = 2;
         // xがmax以上になるまで繰り返す
         while (x<=max) {
-            // 2の倍数をfalseにする
+            // xの倍数をfalseにする
             // xの倍数は合成数
             for(var i=2*x; i<=n; i+=x) p[i] =false;
             // 次の素数を探す
-            // pの配列がx+1でなくなるまで繰り返す？
-            while(!p[++x]) ;
+            // pの配列がtrueになるまで繰り返す
+            //繰り返すごとに、xの値が+1される
+            while(!p[++x]){
+                console.log(x);
+            };
         }
         // 素数だけを取り出して配列primesに格納
         var primes = [],nprimes = 0;
