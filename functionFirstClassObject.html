@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+//const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // javascriptの関数は第1級オブジェクト
+    // 変数に代入できる
+    const variable = ()=>{
+        console.log("変数");
+    };
+    variable();
+    // オブジェクトのプロパディにできる;
+    const object = {
+        one : ()=> {
+            console.log("オブジェクト");
+        }
+    };
+    object.one();
+    // 配列要素に代入できる
+    const arrangement = [
+        ()=>{
+            console.log("配列");
+        }
+    ];
+    arrangement[0]();
+    // 関数の引数に指定できる
+    function _function(test){
+        console.log(test);
+    }
+    _function(()=>{
+        console.log("関数");
+    });
+    // 関数の戻り値として利用できる
+    function _return(string){
+        return console.log(`${string}を返します`);
+    };
+    _return("戻り値");
+    //　プロパディやメソッドを持つことができる
+    function _property(){
+        const property = {
+            sample : ()=>{
+                console.log("プロパティとメソッド");
+            }
+        };
+        property.sample();
+    };
+    _property();
+    // 無名関数が使える
+    (()=>{
+        console.log("無名関数");
+    })();
+    // 動的に生成できる
+});
+</script>
+
+</html>
