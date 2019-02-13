@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>テスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">クラス</h1>
+
+<script type="text/javascript">
+  "use strict";
+//const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // 関数.callerで関数の呼び出しを行っている関数を返す
+    // "use strict"モード時には使用できない
+    const called = ()=> {
+        //console.log(`${called.caller}に呼ばれました`);
+    };
+    const call = ()=>{
+        called();
+    };
+    call();
+    // 関数.lengthで関数の仮引数の数を表示する
+    const quoteValue = (one,two,tree)=> {
+        console.log(one + two +tree);
+    };
+    console.log(quoteValue.length);
+    // 関数.nameで関数の表示名
+    console.log(quoteValue.name);
+    // 関数.prototypeでプロトタイプオブジェクトを表示
+    function _prototype(){
+    };
+    _prototype.prototype.log=()=>{
+        console.log(_prototype.prototype);
+    };
+    const _new = new _prototype;
+    _new.log();
+
+
+
+});
+</script>
+
+</html>
