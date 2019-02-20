@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>javascriptテスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">javascript</h1>
+
+<script type="text/javascript">
+  "use strict";
+//const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // thisの使い方
+
+    // コンストラクタ
+    var sample = sample || {};
+    function Value(one,two){
+        // this.プロパディ名 = 値(ここでは引数)
+        // thisはValue関数
+        // Value関数がもつプロパディoneの値は引数oneである
+        this.one = one;
+        this.two = two;
+    };
+    sample.test = new Value("oneです","twoです");
+    console.log(sample.test.one);   //oneです
+    //　変数
+    sample.test = {
+        value: "変数内のプロパティ",
+        func: function(){
+            // thisはtest変数
+            console.log(this.value);　
+        }
+    };
+    sample.test.func(); //変数内のプロパティ
+
+
+    // applyとcall
+    // thisの値と関数の引数を持つ関数
+    function sample(one,two){
+        console.log(`${one} ${two}${this.property}`);
+    }
+    // プロパティを持つオブジェクト
+    let object = {property:"プロパティ"};
+    // appyとcallはthis.の値と関数の引数を使って関数を実行する
+    // appyは引数を配列で指定
+    // 関数名.appy(オブジェクト名[引数]);
+    sample.apply(object,["引数1","引数2"]); //引数1 引数2プロパティ
+    // callは引数を引数のカンマ区切りリストで指定
+    // 関数名.call(オブジェクト名,引数);
+    sample.call(object,"引数1","引数2"); //引数1　引数2プロパティ
+
+
+    // トップレベルコードではグローバルオブジェクトへの参照になる。
+    console.log(`グローバルオブジェクトは${this}`); //グローバルオブジェクトは[object Window]
+
+    // 関数内のthisはundefined
+    function test (){
+        console.log(`関数内のthisは${this}`); //関数内のthisはundefined
+        function nest(){
+            //　入子内もundefined
+            console.log(`入れ子の関数内にあるthisは${this}`); //入れ子の関数内にあるthisはundefined
+        };
+        nest();
+    };
+    test();
+
+    //イベントハンドラ内のthis
+    function Sample(test) {
+        this.test = test;
+    };
+    Sample.prototype.sample = function() {
+        console.log(this.test);
+    }
+    object = new Sample("オブジェクト");
+    var btn =document.getElementById("btn");
+    // イベントリスナ内のthisは、イベントリスナが登録更田ターゲットの要素オブジェクトとなる
+    // objectのtestプロパティを参照できない
+    btn.addEventListener("click",object.sample); //undefined
+    // この問題の解決方法
+    // bind()メソッドで参照するオブジェクトを指定する
+    btn.addEventListener("click",object.sample.bind(object)); //オブジェクト
+    //無名関数の中で実行する
+    btn.addEventListener("click",function(){
+        object.sample(); //オブジェクト
+    });
+    // アロー関数を用いる
+    // アロー関数のthisは関数定義時に決定される
+    function ArrowSmaple(test){
+        this.test = test;
+        this.sample = () => {
+            console.log(this.test);
+        };
+    }
+    let arrow = new ArrowSmaple("アロー関数");
+    let arroBtn =document.getElementById("btn");
+    arroBtn.addEventListener("click",arrow.sample);　//アロー関数
+
+    //addEventListenerの第2引数にオブジェクトを渡す
+
+
+
+
+
+
+});
+</script>
+
+</html>
