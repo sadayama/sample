@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>javascriptテスト</title>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<h1 id="btn">javascript</h1>
+
+<script type="text/javascript">
+  "use strict";
+//const btn = document.getElementById("btn")
+window.addEventListener('load',()=> {
+    // thisのある関数を用意する
+    function sample(value) {
+        console.log(value + "は" + this.name) ;
+    }
+    // thisの内容を指定する変数
+    var name = { name: "bindです"};
+    // 関数のthisを固定するbindメソッドを入れた変数
+    var test = sample.bind(name);
+    // 変数を実行するとthisの内容がbindで指定した値になる。
+    test("thisを固定するのが"); //thisを固定するのがはbindです
+});
+</script>
+
+</html>
