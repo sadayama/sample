@@ -45,6 +45,7 @@ window.addEventListener('load',()=> {
         //　スライドに反映する
         slide = array[x];
         document.getElementById("slide").innerHTML = array[x];
+        clearInterval(slideshow)
     });
     //右ボタンを押した時の動き
     right.addEventListener("click",function(){
@@ -58,7 +59,22 @@ window.addEventListener('load',()=> {
         //スライドに反映する
         slide = array[x];
         document.getElementById("slide").innerHTML = array[x];
+        clearInterval(slideshow)
     });
+
+    //時間毎の表示変化
+    const slideshow = setInterval(function(){
+        if(x == 4){
+            //もし右端なら左端へ
+            x = 0;
+        }else{
+            //右にずれる
+            x++;
+        };
+        //スライドに反映する
+        slide = array[x];
+        document.getElementById("slide").innerHTML = array[x];
+    },3500);
 });
 </script>
 
